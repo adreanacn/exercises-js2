@@ -8,15 +8,27 @@ const studentGrades = {
   abdul: 19,
 };
 
-const students = Object.keys(studentGrades)
-students.filter(
-  estudiante => {
-    const calificacion = studentGrades[estudiante]
-    const condition = calificacion > 18
-    console.log(condition)
-    return false;
+const students = Object.keys(studentGrades) // ['tom', 'george', 'abdul']
+for (let i = 0; i < students.length; i++) {
+  const estudiante = students[i]
+  const grade = studentGrades[estudiante]
+  if (grade > 18) {
+    console.log(estudiante + ' - ' + grade)
   }
-)
+}
+console.log()
+students.filter( // ['tom', 'george', 'abdul']
+  estudiante => {
+    const grade = studentGrades[estudiante]
+    return grade > 18
+  }
+) //[ 'tom', 'abdul' ]
+  .forEach(
+    estudiante => {
+      const grade = studentGrades[estudiante]
+      console.log(estudiante + ' - ' + grade)
+    }
+  )
 
   // Prints
   // TOM - 20
