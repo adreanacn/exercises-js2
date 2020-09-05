@@ -42,4 +42,4 @@ var writers = [
 /*
 If you want an extra challenge, only `console.log()` the writers that are alive.
 */
-writers.filter(el => el.alive === true).forEach(el => console.log(`Hi, my name is ${el.firstName} ${el.lastName}. I am ${el.age} years old, and work as a ${el.occupation}.`));
+writers.filter(person => person.alive === true).forEach(person => console.log(`Hi, my name is ${person.firstName} ${person.lastName}. I am ${person.age} years old, and work as a ${person.occupation}.`));
