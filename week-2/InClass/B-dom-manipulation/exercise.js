@@ -4,17 +4,24 @@ Task 1
 Write JavaScript below that logs:
     1. all the "p" element nodes of the document,
     --> should log a list of nodes with a length of 6
-
-    2. the first div element node
-    --> should log the ".site-header" node
-
-    3. the element with id "jumbotron-text"
-    --> should log the "#jumbotron-text" node
-
-    4. all the "p" elements of contained inside  the .primary-content element node
-    --> should log a list of nodes with a length of 3
-
 */
+
+var paragraph = document.querySelectorAll("p")
+console.log(paragraph)
+
+// 2. the first div element node
+//--> should log the ".site-header" node */
+var firstDiv = document.querySelector("div")
+console.log(firstDiv)
+// 3. the element with id "jumbotron-text"
+//--> should log the "#jumbotron-text" node */
+var jumbotronDiv = document.getElementById("jumbotron-text")
+var jumbotronDiv = document.querySelector("jumbotron-text")
+console.log(jumbotronDiv)
+// 4. all the "p" elements of contained inside  the .primary-content element node
+// --> should log a list of nodes with a length of 3 */
+var primaryContentP = document.querySelectorAll(".primery-content p")
+console.log(primaryContentP)
 
 
 /*
@@ -24,15 +31,25 @@ Task 2
 When a user clicks the 'ALERT' button, an alert box should pop up with the text "Thanks for visiting Bikes for Refugees!"
 */
 
-
+function greetings() {
+    alert("Thanks for visiting Bikes for Refugees!")
+}
+var button = document.getElementById("alertBtn")
+button.addEventListener("click", greetings);
+button.addEventListener("click", greetingsConsole);
 /*
 Task 3
 =======
 
 Write JavaScript below that changes the background colour of the page when the 'Change colour' button is clicked.
 */
+function changeBackgroundColor() {
+    var body = document.querySelector("body")
+    body.style.backgroundColor = "cyan";
+}
 
-
+var buttonChangeColor = document.getElementById("bgrChangeBtn");
+buttonChangeColor.addEventListener("click", changeBackgroundColor);
 /*
 Task 4
 ======
@@ -40,7 +57,16 @@ Task 4
 When a user clicks the ‘Add some text’ button, a new paragraph should be added inside the section that says “LEARN MORE”
 */
 
+function addSomeText(newText) {
+    var paragraph = document.createElement("p")
+    paragraph.innerText = newText.toUpperCase()
 
+    var learnMoreH2 = document.querySelector(".heading-underline")
+    learnMoreH2.appendChild(paragraph)
+}
+
+var newTextButton = document.querySelector("#addTextBtn")
+newTextButton.addEventListener("click", addSomeText)
 
 /*
 Task 5
@@ -49,6 +75,17 @@ Task 5
 When the 'Larger links!' button is clicked, the text of all links on the page should increase.
 */
 
+function largerLinks() {
+    var anchors = document.querySelectorAll("a[href]")
+    anchors.forEach(
+        anchor => {
+            var fontSize = parseInt(anchor.style.fontSize)
+            anchor.style.fontSize = `${fontSize}em`
+        }
+    )
+}
+var largerLinksButton = document.querySelector("#largerLinksBtn")
+largerLinksButton.addEventListener("click", largerLinks)
 
 /*
 Task 6
@@ -59,6 +96,17 @@ When the 'Add' button is clicked, get the text inside the input field and create
 Also clear the text inside the input field
 */
 
+
+function add() {
+    var inputText = document.querySelector("#content input")
+    var text = inputText.value
+    addSomeText(text)
+    inputText.value = " "
+}
+
+var addButton = document.getElementById("addArticleBtn")
+addButton.addEventListener("click", add)
+
 /*
 Task 7
 ======
@@ -68,3 +116,25 @@ Using the same function in Task 3, every time the 'Change colour' button is clic
 The next color when you are in the last color of the array will be the first color again.
 */
 
+var colores = [
+    "cyan",
+    "red",
+    "green",
+    "blue",
+    "yellow"
+]
+
+function changeBackgroundColor() {
+    var body = document.querySelector("body");
+    var currentColor = body.style.backgroundColor
+    var currentColorIndex = colores.indexOf(currentColor)
+    currentColorIndex++
+
+    if (currentColor >= colores.length) {
+        currentColorIndex = 0
+    }
+    body.style.backgroundColor = colores[currentColorIndex];
+}
+
+var buttonChangeColor = document.getElementById("bgrChangeBtn");
+buttonChangeColor.addEventListener("click", changeBackgroundColor);
