@@ -59,10 +59,16 @@ When a user clicks the ‘Add some text’ button, a new paragraph should be add
 
 function addSomeText(newText) {
     var paragraph = document.createElement("p")
-    paragraph.innerText = newText.toUpperCase()
+    paragraph.innerText = newText
 
-    var learnMoreH2 = document.querySelector(".heading-underline")
-    learnMoreH2.appendChild(paragraph)
+    var article = document.createElement("article")
+    article.classList.add("article")
+    article.appendChild(paragraph)
+
+    var article = document.querySelector("mainArticles")
+    articles.appendChild(article)
+
+
 }
 
 var newTextButton = document.querySelector("#addTextBtn")
