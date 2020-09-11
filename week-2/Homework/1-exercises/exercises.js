@@ -13,10 +13,18 @@
  *      .....
  * </div>
  */
-function exerciseOne(arrayOfPeople) {
-  let content = document.querySelector("#content");
-}
 
+let content = document.querySelector("#content");
+function exerciseOne(arrayOfPeople) {
+  arrayOfPeople.forEach(function (x) {
+    let name = document.createElement("h1");
+    let job = document.createElement("h2");
+    name.textContent = x.name;
+    job.textContent = x.job;
+    content.appendChild(name);
+    content.appendChild(job);
+  });
+}
 /**
  *
  * Create a list of shopping items. You should use an unordered list.
