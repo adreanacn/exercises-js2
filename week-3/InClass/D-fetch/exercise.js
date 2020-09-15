@@ -10,3 +10,8 @@ user latitude and longitude.
 
 ================
 */
+
+const getButton = document.getElementById("get-button");
+getButton.addEventListener("click", () => {
+
+});
