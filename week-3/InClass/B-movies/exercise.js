@@ -108,5 +108,27 @@ function addMovies(movie) {
   movies.push(movie)
   setTimeout(showMovies, 1000)
 }
-
+//TASK 3
 setTimeout(() => addMovies(myMovies[0]), 2000)
+
+//TASK 4
+function createMovieObject(title, director, type, haveWatched) {
+  const movie = {
+    title: title,
+    director: director,
+    type: type,
+    haveWatched: haveWatched
+  }
+}
+
+
+document.getElementById("save").addEventListener("click", event => {
+  event.preventDefault()
+  const title = document.getElementById("input-title").value
+  const director = document.getElementById("input-director").value
+  const type = document.getElementById("input-type").value
+  const haveWatched = document.getElementById("input-watched").value
+
+  const newMovie = createMovieObject(title, director, type, haveWatched)
+  addMovies(newMovie)
+})
