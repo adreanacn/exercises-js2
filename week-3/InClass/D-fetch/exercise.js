@@ -10,6 +10,17 @@ user latitude and longitude.
 
 ================
 */
+const displayTemperature = temperature => {
+    const jumboTron = document.createElement("div")
+    const h3 = document.createElement("h3")
+    jumboTron.appendChild(h3)
+
+    const main = document.getElementById("main")
+    main.appendChild(jumboTron)
+
+    h3.innerText = `$temperature
+}
+
 
 const getButton = document.getElementById("get-button");
 getButton.addEventListener("click", () => {
