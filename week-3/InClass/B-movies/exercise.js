@@ -129,6 +129,6 @@ document.getElementById("save").addEventListener("click", event => {
   const type = document.getElementById("input-type").value
   const haveWatched = document.getElementById("input-watched").value
 
-  const newMovie = createMovieObject(title, director, type, haveWatched)
+  const newMovie = createMovieObject(title, director, type, haveWatched).checked
   addMovies(newMovie)
 })
