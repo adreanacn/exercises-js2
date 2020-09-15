@@ -60,8 +60,51 @@ var movies = [
 
 // create showMovies function
 
+function showMovies() {
+  const allMovies = document.getElementById("all-movies")
+  movies.forEach(movie => {
+    const paragraph = document.createElement("p")
+    paragraph.innerText = '${movie.title} - ${movie.director}'
+    allMovies.appendChild(paragraph)
+  })
+  const moviesNumber = document.getElementById("movies-number")
+  moviesNumber.innerText = movies.length
+
+}
+
+setTimeout(showMovies, 1000)
+
 
 // create a new movie object for your favorite movie
 
+var myMovies = [
+  {
+    title: "Matrix",
+    director: "Wakowski Sisters",
+    type: "Sci-fi",
+    haveWatched: true
+  },
 
-// create addMovies function
+  {
+    title: "Titanic",
+    director: "James Cameron",
+    type: "Drama",
+    haveWatched: false
+  },
+
+  {
+    title: "Joker",
+    director: "Todd Phillips",
+    type: "Comedy",
+    haveWatched: true
+  },
+
+]
+
+// create addMovies function */
+
+function addMovies(movie) {
+  document.querySelectorAll("p:not([class])").forEach(p => p.remove())
+  movies.push(movie)
+  setTimeout(showMovies, 1000)
+}
