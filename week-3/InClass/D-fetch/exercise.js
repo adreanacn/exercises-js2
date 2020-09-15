@@ -13,5 +13,10 @@ user latitude and longitude.
 
 const getButton = document.getElementById("get-button");
 getButton.addEventListener("click", () => {
-
+    const latitude = document.getElementById("latitude").value
+    const longitude = document.getElementById("longitude").value
+    fetch("https://fcc-weather-api.glitch.me/api/current?lat=${latitude}&lon=${longitude}")
+        .then(response => response.json())
+        .then(json => console.log(json.main.temp))
+        .catch(error => console.error(error))
 });
