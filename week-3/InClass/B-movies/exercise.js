@@ -108,3 +108,5 @@ function addMovies(movie) {
   movies.push(movie)
   setTimeout(showMovies, 1000)
 }
+
+setTimeout(() => addMovies(myMovies[0]), 2000)
