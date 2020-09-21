@@ -1,11 +1,19 @@
 function setAlarm() {
-  let seconds = document.getElementById("alarmSet").value;
-  console.log((+seconds * 1000));
-  setTimeout(function () { playAlarm(); clearInterval(intervalo) }, (+seconds * 1000) + 1000);
-
-  let intervalo = setInterval(function () { seconds -= 1; document.getElementById("timeRemaining").innerText = "Time Remaining: 00:0" + seconds; }, 1000);
-  console.log(intervalo)
+  let alarmValue = parseInt(document.getElementById('alarmSet').value)
+  changeOutputText(alarmValue)
 }
+
+function changeOutputText(time) {
+  const outputText = document.getElementById('timeRemaining')
+  outputText.innerText = 'Time Remaining: 00:' + (time < 10 ? `0${time}` : time)
+
+  if (time > 0) {
+    setTimeout(() => changeOutputText(--time), 1000)
+  } else {
+    playAlarm();
+  }
+}
+
 
 // DO NOT EDIT BELOW HERE
 
